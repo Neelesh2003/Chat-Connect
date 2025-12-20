@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "Y6u3trvriKrVWVLWEUhq8VET5FYtixlx0m47W+TMIvM=",
+  "Source": "ChatConnect.Api",
+  "BasePath": "_content/ChatConnect.Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

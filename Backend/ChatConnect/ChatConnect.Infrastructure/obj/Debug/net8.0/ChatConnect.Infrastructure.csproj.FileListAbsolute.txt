@@ -1,0 +1,16 @@
+D:\ChatConnect\ChatConnect\Backend\ChatConnect\ChatConnect.Infrastructure\bin\Debug\net8.0\ChatConnect.Infrastructure.deps.json
+D:\ChatConnect\ChatConnect\Backend\ChatConnect\ChatConnect.Infrastructure\bin\Debug\net8.0\ChatConnect.Infrastructure.dll
+D:\ChatConnect\ChatConnect\Backend\ChatConnect\ChatConnect.Infrastructure\bin\Debug\net8.0\ChatConnect.Infrastructure.pdb
+D:\ChatConnect\ChatConnect\Backend\ChatConnect\ChatConnect.Infrastructure\bin\Debug\net8.0\ChatConnect.Core.dll
+D:\ChatConnect\ChatConnect\Backend\ChatConnect\ChatConnect.Infrastructure\bin\Debug\net8.0\ChatConnect.Core.pdb
+D:\ChatConnect\ChatConnect\Backend\ChatConnect\ChatConnect.Infrastructure\obj\Debug\net8.0\ChatConnect.Infrastructure.csproj.AssemblyReference.cache
+D:\ChatConnect\ChatConnect\Backend\ChatConnect\ChatConnect.Infrastructure\obj\Debug\net8.0\ChatConnect.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+D:\ChatConnect\ChatConnect\Backend\ChatConnect\ChatConnect.Infrastructure\obj\Debug\net8.0\ChatConnect.Infrastructure.AssemblyInfoInputs.cache
+D:\ChatConnect\ChatConnect\Backend\ChatConnect\ChatConnect.Infrastructure\obj\Debug\net8.0\ChatConnect.Infrastructure.AssemblyInfo.cs
+D:\ChatConnect\ChatConnect\Backend\ChatConnect\ChatConnect.Infrastructure\obj\Debug\net8.0\ChatConnect.Infrastructure.csproj.CoreCompileInputs.cache
+D:\ChatConnect\ChatConnect\Backend\ChatConnect\ChatConnect.Infrastructure\obj\Debug\net8.0\ChatConnect.Infrastructure.sourcelink.json
+D:\ChatConnect\ChatConnect\Backend\ChatConnect\ChatConnect.Infrastructure\obj\Debug\net8.0\ChatConn.0A34128E.Up2Date
+D:\ChatConnect\ChatConnect\Backend\ChatConnect\ChatConnect.Infrastructure\obj\Debug\net8.0\ChatConnect.Infrastructure.dll
+D:\ChatConnect\ChatConnect\Backend\ChatConnect\ChatConnect.Infrastructure\obj\Debug\net8.0\refint\ChatConnect.Infrastructure.dll
+D:\ChatConnect\ChatConnect\Backend\ChatConnect\ChatConnect.Infrastructure\obj\Debug\net8.0\ChatConnect.Infrastructure.pdb
+D:\ChatConnect\ChatConnect\Backend\ChatConnect\ChatConnect.Infrastructure\obj\Debug\net8.0\ref\ChatConnect.Infrastructure.dll

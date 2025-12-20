@@ -1,0 +1,16 @@
+D:\ChatConnect\ChatConnect\Backend\ChatConnect\ChatConnect.Application\bin\Debug\net8.0\ChatConnect.Application.deps.json
+D:\ChatConnect\ChatConnect\Backend\ChatConnect\ChatConnect.Application\bin\Debug\net8.0\ChatConnect.Application.dll
+D:\ChatConnect\ChatConnect\Backend\ChatConnect\ChatConnect.Application\bin\Debug\net8.0\ChatConnect.Application.pdb
+D:\ChatConnect\ChatConnect\Backend\ChatConnect\ChatConnect.Application\bin\Debug\net8.0\ChatConnect.Core.dll
+D:\ChatConnect\ChatConnect\Backend\ChatConnect\ChatConnect.Application\bin\Debug\net8.0\ChatConnect.Core.pdb
+D:\ChatConnect\ChatConnect\Backend\ChatConnect\ChatConnect.Application\obj\Debug\net8.0\ChatConnect.Application.csproj.AssemblyReference.cache
+D:\ChatConnect\ChatConnect\Backend\ChatConnect\ChatConnect.Application\obj\Debug\net8.0\ChatConnect.Application.GeneratedMSBuildEditorConfig.editorconfig
+D:\ChatConnect\ChatConnect\Backend\ChatConnect\ChatConnect.Application\obj\Debug\net8.0\ChatConnect.Application.AssemblyInfoInputs.cache
+D:\ChatConnect\ChatConnect\Backend\ChatConnect\ChatConnect.Application\obj\Debug\net8.0\ChatConnect.Application.AssemblyInfo.cs
+D:\ChatConnect\ChatConnect\Backend\ChatConnect\ChatConnect.Application\obj\Debug\net8.0\ChatConnect.Application.csproj.CoreCompileInputs.cache
+D:\ChatConnect\ChatConnect\Backend\ChatConnect\ChatConnect.Application\obj\Debug\net8.0\ChatConnect.Application.sourcelink.json
+D:\ChatConnect\ChatConnect\Backend\ChatConnect\ChatConnect.Application\obj\Debug\net8.0\ChatConn.39E6F962.Up2Date
+D:\ChatConnect\ChatConnect\Backend\ChatConnect\ChatConnect.Application\obj\Debug\net8.0\ChatConnect.Application.dll
+D:\ChatConnect\ChatConnect\Backend\ChatConnect\ChatConnect.Application\obj\Debug\net8.0\refint\ChatConnect.Application.dll
+D:\ChatConnect\ChatConnect\Backend\ChatConnect\ChatConnect.Application\obj\Debug\net8.0\ChatConnect.Application.pdb
+D:\ChatConnect\ChatConnect\Backend\ChatConnect\ChatConnect.Application\obj\Debug\net8.0\ref\ChatConnect.Application.dll
