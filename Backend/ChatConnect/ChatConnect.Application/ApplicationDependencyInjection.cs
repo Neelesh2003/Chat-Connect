@@ -7,7 +7,7 @@ namespace ChatConnect.Application
 {
     public static class ApplicationDependencyInjection
     {
-        public static IServiceCollection AddApplicationLayer(this IServiceCollection services)
+        public static IServiceCollection AddApplicationLayer(this IServiceCollection services, Microsoft.Extensions.Configuration.ConfigurationManager configuration)
         {
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(ApplicationDependencyInjection).Assembly));
 

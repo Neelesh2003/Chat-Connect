@@ -3,7 +3,86 @@
   "WorkspaceRootPath": "D:\\ChatConnect\\ChatConnect\\Backend\\ChatConnect\\ChatConnect.Api\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{4A5E359F-1E3A-4D70-B393-EB15DE17E876}|..\\ChatConnect.Infrastructure\\ChatConnect.Infrastructure.csproj|d:\\chatconnect\\chatconnect\\backend\\chatconnect\\chatconnect.infrastructure\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4A5E359F-1E3A-4D70-B393-EB15DE17E876}|..\\ChatConnect.Infrastructure\\ChatConnect.Infrastructure.csproj|d:\\chatconnect\\chatconnect\\backend\\chatconnect\\chatconnect.infrastructure\\migrations\\appdbcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\ChatConnect\\ChatConnect\\Backend\\ChatConnect\\ChatConnect.Infrastructure\\Migrations\\20251221175256_Initialized_Entities.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ABF4EF27-99A5-42F0-8CE0-F4D066AF7CC7}|ChatConnect.Api.csproj|d:\\chatconnect\\chatconnect\\backend\\chatconnect\\chatconnect.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ABF4EF27-99A5-42F0-8CE0-F4D066AF7CC7}|ChatConnect.Api.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4A5E359F-1E3A-4D70-B393-EB15DE17E876}|..\\ChatConnect.Infrastructure\\ChatConnect.Infrastructure.csproj|d:\\chatconnect\\chatconnect\\backend\\chatconnect\\chatconnect.infrastructure\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4A5E359F-1E3A-4D70-B393-EB15DE17E876}|..\\ChatConnect.Infrastructure\\ChatConnect.Infrastructure.csproj|d:\\chatconnect\\chatconnect\\backend\\chatconnect\\chatconnect.infrastructure\\persistence\\dapper\\conversationdapperrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4A5E359F-1E3A-4D70-B393-EB15DE17E876}|..\\ChatConnect.Infrastructure\\ChatConnect.Infrastructure.csproj|d:\\chatconnect\\chatconnect\\backend\\chatconnect\\chatconnect.infrastructure\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F30BD190-9B82-4EE5-A52E-BC85FFE1CAB1}|..\\ChatConnect.Application\\ChatConnect.Application.csproj|d:\\chatconnect\\chatconnect\\backend\\chatconnect\\chatconnect.application\\applicationdependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ABF4EF27-99A5-42F0-8CE0-F4D066AF7CC7}|ChatConnect.Api.csproj|d:\\chatconnect\\chatconnect\\backend\\chatconnect\\chatconnect.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{ABF4EF27-99A5-42F0-8CE0-F4D066AF7CC7}|ChatConnect.Api.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ABF4EF27-99A5-42F0-8CE0-F4D066AF7CC7}|ChatConnect.Api.csproj|d:\\chatconnect\\chatconnect\\backend\\chatconnect\\chatconnect.api\\libman.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{ABF4EF27-99A5-42F0-8CE0-F4D066AF7CC7}|ChatConnect.Api.csproj|solutionrelative:libman.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ABF4EF27-99A5-42F0-8CE0-F4D066AF7CC7}|ChatConnect.Api.csproj|d:\\chatconnect\\chatconnect\\backend\\chatconnect\\chatconnect.api\\chatconnect.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{ABF4EF27-99A5-42F0-8CE0-F4D066AF7CC7}|ChatConnect.Api.csproj|solutionrelative:chatconnect.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4A5E359F-1E3A-4D70-B393-EB15DE17E876}|..\\ChatConnect.Infrastructure\\ChatConnect.Infrastructure.csproj|d:\\chatconnect\\chatconnect\\backend\\chatconnect\\chatconnect.infrastructure\\data\\configurations\\userconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4A5E359F-1E3A-4D70-B393-EB15DE17E876}|..\\ChatConnect.Infrastructure\\ChatConnect.Infrastructure.csproj|d:\\chatconnect\\chatconnect\\backend\\chatconnect\\chatconnect.infrastructure\\data\\configurations\\messageconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4A5E359F-1E3A-4D70-B393-EB15DE17E876}|..\\ChatConnect.Infrastructure\\ChatConnect.Infrastructure.csproj|d:\\chatconnect\\chatconnect\\backend\\chatconnect\\chatconnect.infrastructure\\data\\configurations\\groupmessageconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4A5E359F-1E3A-4D70-B393-EB15DE17E876}|..\\ChatConnect.Infrastructure\\ChatConnect.Infrastructure.csproj|d:\\chatconnect\\chatconnect\\backend\\chatconnect\\chatconnect.infrastructure\\data\\configurations\\groupmemberconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4A5E359F-1E3A-4D70-B393-EB15DE17E876}|..\\ChatConnect.Infrastructure\\ChatConnect.Infrastructure.csproj|d:\\chatconnect\\chatconnect\\backend\\chatconnect\\chatconnect.infrastructure\\data\\configurations\\groupconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4A5E359F-1E3A-4D70-B393-EB15DE17E876}|..\\ChatConnect.Infrastructure\\ChatConnect.Infrastructure.csproj|d:\\chatconnect\\chatconnect\\backend\\chatconnect\\chatconnect.infrastructure\\chatconnect.infrastructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1BBFDEFA-EEF0-46E9-B4BA-6D19478F2817}|..\\ChatConnect.Core\\ChatConnect.Core.csproj|d:\\chatconnect\\chatconnect\\backend\\chatconnect\\chatconnect.core\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1BBFDEFA-EEF0-46E9-B4BA-6D19478F2817}|..\\ChatConnect.Core\\ChatConnect.Core.csproj|d:\\chatconnect\\chatconnect\\backend\\chatconnect\\chatconnect.core\\entities\\group.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1BBFDEFA-EEF0-46E9-B4BA-6D19478F2817}|..\\ChatConnect.Core\\ChatConnect.Core.csproj|d:\\chatconnect\\chatconnect\\backend\\chatconnect\\chatconnect.core\\entities\\groupmember.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1BBFDEFA-EEF0-46E9-B4BA-6D19478F2817}|..\\ChatConnect.Core\\ChatConnect.Core.csproj|d:\\chatconnect\\chatconnect\\backend\\chatconnect\\chatconnect.core\\entities\\groupmessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1BBFDEFA-EEF0-46E9-B4BA-6D19478F2817}|..\\ChatConnect.Core\\ChatConnect.Core.csproj|d:\\chatconnect\\chatconnect\\backend\\chatconnect\\chatconnect.core\\entities\\message.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ABF4EF27-99A5-42F0-8CE0-F4D066AF7CC7}|ChatConnect.Api.csproj|d:\\chatconnect\\chatconnect\\backend\\chatconnect\\chatconnect.api\\controllers\\messagescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ABF4EF27-99A5-42F0-8CE0-F4D066AF7CC7}|ChatConnect.Api.csproj|solutionrelative:controllers\\messagescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ABF4EF27-99A5-42F0-8CE0-F4D066AF7CC7}|ChatConnect.Api.csproj|d:\\chatconnect\\chatconnect\\backend\\chatconnect\\chatconnect.api\\controllers\\groupscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ABF4EF27-99A5-42F0-8CE0-F4D066AF7CC7}|ChatConnect.Api.csproj|solutionrelative:controllers\\groupscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ABF4EF27-99A5-42F0-8CE0-F4D066AF7CC7}|ChatConnect.Api.csproj|d:\\chatconnect\\chatconnect\\backend\\chatconnect\\chatconnect.api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ABF4EF27-99A5-42F0-8CE0-F4D066AF7CC7}|ChatConnect.Api.csproj|solutionrelative:controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\ChatConnect\\ChatConnect\\Backend\\ChatConnect\\ChatConnect.Infrastructure\\Class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,15 +101,325 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "AppDbContextModelSnapshot.cs",
+              "DocumentMoniker": "D:\\ChatConnect\\ChatConnect\\Backend\\ChatConnect\\ChatConnect.Infrastructure\\Migrations\\AppDbContextModelSnapshot.cs",
+              "RelativeDocumentMoniker": "..\\ChatConnect.Infrastructure\\Migrations\\AppDbContextModelSnapshot.cs",
+              "ToolTip": "D:\\ChatConnect\\ChatConnect\\Backend\\ChatConnect\\ChatConnect.Infrastructure\\Migrations\\AppDbContextModelSnapshot.cs",
+              "RelativeToolTip": "..\\ChatConnect.Infrastructure\\Migrations\\AppDbContextModelSnapshot.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-21T17:53:09.696Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "20251221175256_Initialized_Entities.cs",
+              "DocumentMoniker": "D:\\ChatConnect\\ChatConnect\\Backend\\ChatConnect\\ChatConnect.Infrastructure\\Migrations\\20251221175256_Initialized_Entities.cs",
+              "RelativeDocumentMoniker": "..\\ChatConnect.Infrastructure\\Migrations\\20251221175256_Initialized_Entities.cs",
+              "ToolTip": "D:\\ChatConnect\\ChatConnect\\Backend\\ChatConnect\\ChatConnect.Infrastructure\\Migrations\\20251221175256_Initialized_Entities.cs",
+              "RelativeToolTip": "..\\ChatConnect.Infrastructure\\Migrations\\20251221175256_Initialized_Entities.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-21T17:52:56.964Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ConversationDapperRepository.cs",
+              "DocumentMoniker": "D:\\ChatConnect\\ChatConnect\\Backend\\ChatConnect\\ChatConnect.Infrastructure\\Persistence\\Dapper\\ConversationDapperRepository.cs",
+              "RelativeDocumentMoniker": "..\\ChatConnect.Infrastructure\\Persistence\\Dapper\\ConversationDapperRepository.cs",
+              "ToolTip": "D:\\ChatConnect\\ChatConnect\\Backend\\ChatConnect\\ChatConnect.Infrastructure\\Persistence\\Dapper\\ConversationDapperRepository.cs",
+              "RelativeToolTip": "..\\ChatConnect.Infrastructure\\Persistence\\Dapper\\ConversationDapperRepository.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAYwBAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-21T17:46:11.685Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ApplicationDependencyInjection.cs",
+              "DocumentMoniker": "D:\\ChatConnect\\ChatConnect\\Backend\\ChatConnect\\ChatConnect.Application\\ApplicationDependencyInjection.cs",
+              "RelativeDocumentMoniker": "..\\ChatConnect.Application\\ApplicationDependencyInjection.cs",
+              "ToolTip": "D:\\ChatConnect\\ChatConnect\\Backend\\ChatConnect\\ChatConnect.Application\\ApplicationDependencyInjection.cs",
+              "RelativeToolTip": "..\\ChatConnect.Application\\ApplicationDependencyInjection.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-21T17:44:56.509Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\ChatConnect\\ChatConnect\\Backend\\ChatConnect\\ChatConnect.Api\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "D:\\ChatConnect\\ChatConnect\\Backend\\ChatConnect\\ChatConnect.Api\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-12-21T17:40:51.351Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\ChatConnect\\ChatConnect\\Backend\\ChatConnect\\ChatConnect.Api\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "D:\\ChatConnect\\ChatConnect\\Backend\\ChatConnect\\ChatConnect.Api\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAAAABwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-21T17:26:27.603Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DependencyInjection.cs",
+              "DocumentMoniker": "D:\\ChatConnect\\ChatConnect\\Backend\\ChatConnect\\ChatConnect.Infrastructure\\DependencyInjection.cs",
+              "RelativeDocumentMoniker": "..\\ChatConnect.Infrastructure\\DependencyInjection.cs",
+              "ToolTip": "D:\\ChatConnect\\ChatConnect\\Backend\\ChatConnect\\ChatConnect.Infrastructure\\DependencyInjection.cs",
+              "RelativeToolTip": "..\\ChatConnect.Infrastructure\\DependencyInjection.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAAD4vyQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-21T17:25:27.877Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "D:\\ChatConnect\\ChatConnect\\Backend\\ChatConnect\\ChatConnect.Infrastructure\\Data\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "..\\ChatConnect.Infrastructure\\Data\\AppDbContext.cs",
+              "ToolTip": "D:\\ChatConnect\\ChatConnect\\Backend\\ChatConnect\\ChatConnect.Infrastructure\\Data\\AppDbContext.cs",
+              "RelativeToolTip": "..\\ChatConnect.Infrastructure\\Data\\AppDbContext.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAwwBoAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-21T16:10:33.965Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "libman.json",
+              "DocumentMoniker": "D:\\ChatConnect\\ChatConnect\\Backend\\ChatConnect\\ChatConnect.Api\\libman.json",
+              "RelativeDocumentMoniker": "libman.json",
+              "ToolTip": "D:\\ChatConnect\\ChatConnect\\Backend\\ChatConnect\\ChatConnect.Api\\libman.json",
+              "RelativeToolTip": "libman.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-12-21T17:38:21.032Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "MessageConfiguration.cs",
+              "DocumentMoniker": "D:\\ChatConnect\\ChatConnect\\Backend\\ChatConnect\\ChatConnect.Infrastructure\\Data\\Configurations\\MessageConfiguration.cs",
+              "RelativeDocumentMoniker": "..\\ChatConnect.Infrastructure\\Data\\Configurations\\MessageConfiguration.cs",
+              "ToolTip": "D:\\ChatConnect\\ChatConnect\\Backend\\ChatConnect\\ChatConnect.Infrastructure\\Data\\Configurations\\MessageConfiguration.cs",
+              "RelativeToolTip": "..\\ChatConnect.Infrastructure\\Data\\Configurations\\MessageConfiguration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-21T16:06:21.647Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ChatConnect.Api",
+              "DocumentMoniker": "D:\\ChatConnect\\ChatConnect\\Backend\\ChatConnect\\ChatConnect.Api\\ChatConnect.Api.csproj",
+              "RelativeDocumentMoniker": "ChatConnect.Api.csproj",
+              "ToolTip": "D:\\ChatConnect\\ChatConnect\\Backend\\ChatConnect\\ChatConnect.Api\\ChatConnect.Api.csproj",
+              "RelativeToolTip": "ChatConnect.Api.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-12-21T17:10:53.275Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "GroupMessageConfiguration.cs",
+              "DocumentMoniker": "D:\\ChatConnect\\ChatConnect\\Backend\\ChatConnect\\ChatConnect.Infrastructure\\Data\\Configurations\\GroupMessageConfiguration.cs",
+              "RelativeDocumentMoniker": "..\\ChatConnect.Infrastructure\\Data\\Configurations\\GroupMessageConfiguration.cs",
+              "ToolTip": "D:\\ChatConnect\\ChatConnect\\Backend\\ChatConnect\\ChatConnect.Infrastructure\\Data\\Configurations\\GroupMessageConfiguration.cs",
+              "RelativeToolTip": "..\\ChatConnect.Infrastructure\\Data\\Configurations\\GroupMessageConfiguration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-21T16:06:19.12Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "GroupMemberConfiguration.cs",
+              "DocumentMoniker": "D:\\ChatConnect\\ChatConnect\\Backend\\ChatConnect\\ChatConnect.Infrastructure\\Data\\Configurations\\GroupMemberConfiguration.cs",
+              "RelativeDocumentMoniker": "..\\ChatConnect.Infrastructure\\Data\\Configurations\\GroupMemberConfiguration.cs",
+              "ToolTip": "D:\\ChatConnect\\ChatConnect\\Backend\\ChatConnect\\ChatConnect.Infrastructure\\Data\\Configurations\\GroupMemberConfiguration.cs",
+              "RelativeToolTip": "..\\ChatConnect.Infrastructure\\Data\\Configurations\\GroupMemberConfiguration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-21T16:06:14.747Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "UserConfiguration.cs",
+              "DocumentMoniker": "D:\\ChatConnect\\ChatConnect\\Backend\\ChatConnect\\ChatConnect.Infrastructure\\Data\\Configurations\\UserConfiguration.cs",
+              "RelativeDocumentMoniker": "..\\ChatConnect.Infrastructure\\Data\\Configurations\\UserConfiguration.cs",
+              "ToolTip": "D:\\ChatConnect\\ChatConnect\\Backend\\ChatConnect\\ChatConnect.Infrastructure\\Data\\Configurations\\UserConfiguration.cs",
+              "RelativeToolTip": "..\\ChatConnect.Infrastructure\\Data\\Configurations\\UserConfiguration.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAcAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-21T16:06:23.241Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "GroupConfiguration.cs",
+              "DocumentMoniker": "D:\\ChatConnect\\ChatConnect\\Backend\\ChatConnect\\ChatConnect.Infrastructure\\Data\\Configurations\\GroupConfiguration.cs",
+              "RelativeDocumentMoniker": "..\\ChatConnect.Infrastructure\\Data\\Configurations\\GroupConfiguration.cs",
+              "ToolTip": "D:\\ChatConnect\\ChatConnect\\Backend\\ChatConnect\\ChatConnect.Infrastructure\\Data\\Configurations\\GroupConfiguration.cs",
+              "RelativeToolTip": "..\\ChatConnect.Infrastructure\\Data\\Configurations\\GroupConfiguration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-21T15:58:47.07Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "ChatConnect.Infrastructure",
+              "DocumentMoniker": "D:\\ChatConnect\\ChatConnect\\Backend\\ChatConnect\\ChatConnect.Infrastructure\\ChatConnect.Infrastructure.csproj",
+              "RelativeDocumentMoniker": "..\\ChatConnect.Infrastructure\\ChatConnect.Infrastructure.csproj",
+              "ToolTip": "D:\\ChatConnect\\ChatConnect\\Backend\\ChatConnect\\ChatConnect.Infrastructure\\ChatConnect.Infrastructure.csproj",
+              "RelativeToolTip": "..\\ChatConnect.Infrastructure\\ChatConnect.Infrastructure.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-12-21T16:12:34.613Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "User.cs",
+              "DocumentMoniker": "D:\\ChatConnect\\ChatConnect\\Backend\\ChatConnect\\ChatConnect.Core\\Entities\\User.cs",
+              "RelativeDocumentMoniker": "..\\ChatConnect.Core\\Entities\\User.cs",
+              "ToolTip": "D:\\ChatConnect\\ChatConnect\\Backend\\ChatConnect\\ChatConnect.Core\\Entities\\User.cs",
+              "RelativeToolTip": "..\\ChatConnect.Core\\Entities\\User.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-21T16:05:23.109Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "Message.cs",
+              "DocumentMoniker": "D:\\ChatConnect\\ChatConnect\\Backend\\ChatConnect\\ChatConnect.Core\\Entities\\Message.cs",
+              "RelativeDocumentMoniker": "..\\ChatConnect.Core\\Entities\\Message.cs",
+              "ToolTip": "D:\\ChatConnect\\ChatConnect\\Backend\\ChatConnect\\ChatConnect.Core\\Entities\\Message.cs",
+              "RelativeToolTip": "..\\ChatConnect.Core\\Entities\\Message.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAYwAwAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-21T16:04:35.194Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "GroupMessage.cs",
+              "DocumentMoniker": "D:\\ChatConnect\\ChatConnect\\Backend\\ChatConnect\\ChatConnect.Core\\Entities\\GroupMessage.cs",
+              "RelativeDocumentMoniker": "..\\ChatConnect.Core\\Entities\\GroupMessage.cs",
+              "ToolTip": "D:\\ChatConnect\\ChatConnect\\Backend\\ChatConnect\\ChatConnect.Core\\Entities\\GroupMessage.cs",
+              "RelativeToolTip": "..\\ChatConnect.Core\\Entities\\GroupMessage.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAYwAwAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-21T16:04:12.972Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "GroupMember.cs",
+              "DocumentMoniker": "D:\\ChatConnect\\ChatConnect\\Backend\\ChatConnect\\ChatConnect.Core\\Entities\\GroupMember.cs",
+              "RelativeDocumentMoniker": "..\\ChatConnect.Core\\Entities\\GroupMember.cs",
+              "ToolTip": "D:\\ChatConnect\\ChatConnect\\Backend\\ChatConnect\\ChatConnect.Core\\Entities\\GroupMember.cs",
+              "RelativeToolTip": "..\\ChatConnect.Core\\Entities\\GroupMember.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-21T15:59:41.207Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Group.cs",
+              "DocumentMoniker": "D:\\ChatConnect\\ChatConnect\\Backend\\ChatConnect\\ChatConnect.Core\\Entities\\Group.cs",
+              "RelativeDocumentMoniker": "..\\ChatConnect.Core\\Entities\\Group.cs",
+              "ToolTip": "D:\\ChatConnect\\ChatConnect\\Backend\\ChatConnect\\ChatConnect.Core\\Entities\\Group.cs",
+              "RelativeToolTip": "..\\ChatConnect.Core\\Entities\\Group.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAgwAkAAABBAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-21T15:58:29.581Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "MessagesController.cs",
+              "DocumentMoniker": "D:\\ChatConnect\\ChatConnect\\Backend\\ChatConnect\\ChatConnect.Api\\Controllers\\MessagesController.cs",
+              "RelativeDocumentMoniker": "Controllers\\MessagesController.cs",
+              "ToolTip": "D:\\ChatConnect\\ChatConnect\\Backend\\ChatConnect\\ChatConnect.Api\\Controllers\\MessagesController.cs",
+              "RelativeToolTip": "Controllers\\MessagesController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-21T15:58:00.14Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "D:\\ChatConnect\\ChatConnect\\Backend\\ChatConnect\\ChatConnect.Api\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AuthController.cs",
+              "ToolTip": "D:\\ChatConnect\\ChatConnect\\Backend\\ChatConnect\\ChatConnect.Api\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "Controllers\\AuthController.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAYwAgAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-21T15:56:18.146Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "GroupsController.cs",
+              "DocumentMoniker": "D:\\ChatConnect\\ChatConnect\\Backend\\ChatConnect\\ChatConnect.Api\\Controllers\\GroupsController.cs",
+              "RelativeDocumentMoniker": "Controllers\\GroupsController.cs",
+              "ToolTip": "D:\\ChatConnect\\ChatConnect\\Backend\\ChatConnect\\ChatConnect.Api\\Controllers\\GroupsController.cs",
+              "RelativeToolTip": "Controllers\\GroupsController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-21T10:07:01.019Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
               "Title": "Class1.cs",
               "DocumentMoniker": "D:\\ChatConnect\\ChatConnect\\Backend\\ChatConnect\\ChatConnect.Infrastructure\\Class1.cs",
               "RelativeDocumentMoniker": "..\\ChatConnect.Infrastructure\\Class1.cs",
               "ToolTip": "D:\\ChatConnect\\ChatConnect\\Backend\\ChatConnect\\ChatConnect.Infrastructure\\Class1.cs",
               "RelativeToolTip": "..\\ChatConnect.Infrastructure\\Class1.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-20T18:38:39.334Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-20T18:38:39.334Z"
             }
           ]
         }

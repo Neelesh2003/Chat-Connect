@@ -1,4 +1,5 @@
-﻿using ChatConnect.Core.Interfaces;
+﻿using ChatConnect.Core.Entities;
+using ChatConnect.Core.Interfaces;
 using ChatConnect.Core.Interfaces.Repositories;
 using ChatConnect.Core.Interfaces.Services;
 using ChatConnect.Infrastructure.Data;
@@ -31,6 +32,8 @@ namespace ChatConnect.Infrastructure
             // Services
             services.AddScoped<IJwtService, JwtService>();
             services.AddSingleton<IConnectionMapping<int>, ConnectionMapping<int>>(); // For SignalR user connections
+
+            //services.AddIdentityCore<User>().AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
 
             // Logging
             services.AddLogging(builder => builder.AddConsole());

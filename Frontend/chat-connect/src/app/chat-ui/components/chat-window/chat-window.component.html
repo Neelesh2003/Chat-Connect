@@ -1,0 +1,19 @@
+<div class="d-flex flex-column h-100">
+  <div class="chat-header bg-light p-3 border-bottom">
+    <h5>{{ (selectedChat$ | async)?.name }}</h5>
+  </div>
+  <div class="flex-grow-1 p-3 overflow-auto" infiniteScroll (scrolled)="onScroll()" [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50">
+    <div *ngFor="let message of messages$ | async" class="mb-3">
+      <div [ngClass]="{'text-end': message.senderId === currentUserId, 'text-start': message.senderId !== currentUserId}">
+        <div class="d-inline-block p-2 rounded" 
+             [ngClass]="{'bg-primary text-white': message.senderId === currentUserId, 'bg-light': message.senderId !== currentUserId}">
+          <div *ngIf="message.isImage" class="img-fluid rounded" [src]="message.content" style="max-width: 200px;"></div>
+          <div *ngIf="!message.isImage">{{ message.content }}</div>
+          <small class="d-block">{{ message.createdAt | timestamp }}</small>
+        </div>
+        <button *ngIf="message.senderId === currentUserId" class="btn btn-sm btn-outline-danger ms-2" (click)="onDeleteMessage(message)">Delete</button>
+      </div>
+    </div>
+  </div>
+  <app-message-input></app-message-input>
+</div>

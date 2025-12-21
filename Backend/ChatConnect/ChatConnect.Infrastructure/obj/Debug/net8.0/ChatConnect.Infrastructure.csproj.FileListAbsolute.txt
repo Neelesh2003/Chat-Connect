@@ -14,3 +14,5 @@ D:\ChatConnect\ChatConnect\Backend\ChatConnect\ChatConnect.Infrastructure\obj\De
 D:\ChatConnect\ChatConnect\Backend\ChatConnect\ChatConnect.Infrastructure\obj\Debug\net8.0\refint\ChatConnect.Infrastructure.dll
 D:\ChatConnect\ChatConnect\Backend\ChatConnect\ChatConnect.Infrastructure\obj\Debug\net8.0\ChatConnect.Infrastructure.pdb
 D:\ChatConnect\ChatConnect\Backend\ChatConnect\ChatConnect.Infrastructure\obj\Debug\net8.0\ref\ChatConnect.Infrastructure.dll
+D:\ChatConnect\ChatConnect\Backend\ChatConnect\ChatConnect.Infrastructure\bin\Debug\net8.0\ChatConnect.Infrastructure.runtimeconfig.json
+D:\ChatConnect\ChatConnect\Backend\ChatConnect\ChatConnect.Infrastructure\obj\Debug\net8.0\ChatConnect.Infrastructure.genruntimeconfig.cache

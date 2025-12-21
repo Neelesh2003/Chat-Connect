@@ -1,0 +1,9 @@
+.list-group-item {
+  border-left: 3px solid transparent;
+  cursor: pointer;
+
+  &:hover, &.active {
+    border-left-color: #007bff;
+    background-color: rgba(0, 123, 255, 0.1);
+  }
+}

@@ -1,0 +1,7 @@
+<div class="input-group p-3 border-top">
+  <input type="file" #fileInput (change)="onFileSelect($event)" accept="image/*" class="form-control d-none">
+  <button type="button" class="btn btn-outline-secondary" (click)="fileInput.click()">📷</button>
+  <input type="text" class="form-control" [formControl]="messageControl" placeholder="Type a message...">
+  <img *ngIf="imagePreview" [src]="imagePreview" class="img-thumbnail small-preview" />
+  <button class="btn btn-primary" (click)="onSend()">Send</button>
+</div>

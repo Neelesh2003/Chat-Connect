@@ -1,6 +1,7 @@
 ﻿using ChatConnect.Core.DTOs;
 using ChatConnect.Core.Interfaces;
 using Dapper;
+using Microsoft.Extensions.Configuration;
 using Npgsql;
 
 namespace ChatConnect.Infrastructure.Persistence.Dapper
@@ -9,9 +10,9 @@ namespace ChatConnect.Infrastructure.Persistence.Dapper
     {
         private readonly string _connectionString;
 
-        public ConversationDapperRepository(string connectionString)
+        public ConversationDapperRepository(IConfiguration configuration)
         {
-            _connectionString = connectionString;
+            _connectionString = configuration.GetConnectionString("DefaultConnection");
         }
 
         public async Task<List<MessageDto>> GetConversationAsync(int userId1, int userId2)
