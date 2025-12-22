@@ -1,0 +1,4 @@
+<div *ngIf="visible" [ngClass]="alertClass" style="top: 20px; right: 20px; z-index: 9999; min-width: 300px;">
+  {{ notification.message }}
+  <button type="button" class="btn-close" (click)="close()"></button>
+</div>

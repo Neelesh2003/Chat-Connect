@@ -1,0 +1,10 @@
+<div class="avatar-wrapper">
+  <div class="avatar {{ sizeClass }}" [style.background-image]="'url(' + imageUrl + ')'" *ngIf="imageUrl; else initialsTemplate">
+  </div>
+  <ng-template #initialsTemplate>
+    <div class="avatar {{ sizeClass }} bg-primary text-white d-flex align-items-center justify-content-center">
+      {{ initials }}
+    </div>
+  </ng-template>
+  <div class="online-indicator" *ngIf="isOnline"></div>
+</div>

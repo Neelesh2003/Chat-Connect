@@ -1,19 +1,26 @@
-<div class="d-flex flex-column h-100">
-  <div class="chat-header bg-light p-3 border-bottom">
-    <h5>{{ (selectedChat$ | async)?.name }}</h5>
-  </div>
-  <div class="flex-grow-1 p-3 overflow-auto" infiniteScroll (scrolled)="onScroll()" [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50">
-    <div *ngFor="let message of messages$ | async" class="mb-3">
-      <div [ngClass]="{'text-end': message.senderId === currentUserId, 'text-start': message.senderId !== currentUserId}">
-        <div class="d-inline-block p-2 rounded" 
-             [ngClass]="{'bg-primary text-white': message.senderId === currentUserId, 'bg-light': message.senderId !== currentUserId}">
-          <div *ngIf="message.isImage" class="img-fluid rounded" [src]="message.content" style="max-width: 200px;"></div>
-          <div *ngIf="!message.isImage">{{ message.content }}</div>
-          <small class="d-block">{{ message.createdAt | timestamp }}</small>
-        </div>
-        <button *ngIf="message.senderId === currentUserId" class="btn btn-sm btn-outline-danger ms-2" (click)="onDeleteMessage(message)">Delete</button>
-      </div>
+<div class="chat-window flex-grow-1 d-flex flex-column">
+  <div class="chat-header bg-light p-3 border-bottom d-flex justify-content-between align-items-center">
+    <h6 *ngIf="selectedUser">{{ selectedUser.username }}</h6>
+    <h6 *ngIf="selectedGroup">{{ selectedGroup.name }}</h6>
+    <div *ngIf="typingUsers.length > 0" class="typing-indicator text-muted small">
+      Someone is typing...
     </div>
   </div>
-  <app-message-input></app-message-input>
+
+  <div #messagesContainer class="messages-container flex-grow-1 p-3 overflow-auto bg-white" (scroll)="onScroll($event)">
+    <div *ngFor="let msg of messages" class="message mb-2" [ngClass]="{'own': msg.senderId === currentUser.id, 'other': msg.senderId !== currentUser.id}">
+      <div class="sender-name small text-muted" *ngIf="selectedGroup && msg.senderName !== currentUser.username">
+        {{ msg.senderName }}
+      </div>
+      <div class="message-content" *ngIf="!msg.isImage">{{ msg.message }}</div>
+      <img *ngIf="msg.isImage" [src]="msg.message" class="img-fluid rounded" style="max-width: 200px;" alt="Image">
+      <div class="message-time small text-muted">{{ msg.createdAt | timestamp }}</div>
+      <button *ngIf="msg.senderId === currentUser.id" class="btn btn-sm btn-outline-danger ms-2" (click)="onDeleteMessage(msg)">Delete</button>
+    </div>
+    <div *ngIf="messages.length === 0" class="text-center text-muted mt-5">
+      No messages yet. Start the conversation!
+    </div>
+  </div>
+
+  <app-message-input [selectedUser]="selectedUser" [selectedGroup]="selectedGroup" [currentUser]="currentUser"></app-message-input>
 </div>

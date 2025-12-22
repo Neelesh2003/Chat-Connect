@@ -19,10 +19,16 @@ namespace ChatConnect.Api.Hubs
 
         public override async Task OnConnectedAsync()
         {
-            var userId = int.Parse(Context.User!.FindFirst("userId")!.Value);
-            await Groups.AddToGroupAsync(Context.ConnectionId, $"user_{userId}");
-            await _mediator.Send(new UpdateUserOnlineStatusCommand { UserId = userId, IsOnline = true });
-            await base.OnConnectedAsync();
+            try
+            {
+                var userId = int.Parse(Context.User!.FindFirst("userId")!.Value);
+                await Groups.AddToGroupAsync(Context.ConnectionId, $"user_{userId}");
+                await _mediator.Send(new UpdateUserOnlineStatusCommand { UserId = userId, IsOnline = true });
+                await base.OnConnectedAsync();
+            }catch(Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public override async Task OnDisconnectedAsync(Exception? exception)

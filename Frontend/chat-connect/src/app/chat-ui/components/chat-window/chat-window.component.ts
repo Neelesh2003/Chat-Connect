@@ -1,41 +1,94 @@
-import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
-import { CommonModule } from '@angular/common';
-import { InfiniteScrollModule } from 'ngx-infinite-scroll';
-import { selectSelectedChat, selectMessages, selectHasMore } from '../../store/chat.selectors';
-import * as ChatActions from '../../store/chat.actions';
-import { Message } from '../../models/chat.models';
-import { TimestampPipe } from '../../../core/pipes/timestamp.pipe';
+import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
+import { ChatService } from '../../services/chat.service';
+import { SignalRService } from '../../services/signalr.service';
+import { MessageResponse } from '../../models/chat.models';
+import { LoaderService } from '../../../core/services/loader.service';
+import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-chat-window',
   standalone: false,
-  imports: [CommonModule, InfiniteScrollModule, TimestampPipe],
   templateUrl: './chat-window.component.html',
   styleUrls: ['./chat-window.component.scss']
 })
 export class ChatWindowComponent implements OnInit {
-  selectedChat$: Observable<any>;
-  messages$: Observable<Message[]>;
-  hasMore$: Observable<boolean>;
+  @Input() currentUser: any;
+  @Input() selectedUser: any;
+  @Input() selectedGroup: any;
+  @ViewChild('messagesContainer') messagesContainer!: ElementRef;
 
-  constructor(private store: Store) {
-    this.selectedChat$ = this.store.select(selectSelectedChat);
-    this.messages$ = this.store.select(selectMessages);
-    this.hasMore$ = this.store.select(selectHasMore);
+  messages: MessageResponse[] = [];
+  page = 0;
+  loadingMore = false;
+  imagePreview: SafeUrl | null = null;
+  typingUsers: number[] = [];
+
+  constructor(
+    private chatService: ChatService,
+    private signalRService: SignalRService,
+    private loaderService: LoaderService,
+    private sanitizer: DomSanitizer
+  ) {}
+
+  ngOnInit(): void {
+    this.signalRService.messages$.subscribe(messages => {
+      this.messages = messages;
+      this.scrollToBottom();
+    });
+    this.signalRService.typingUsers$.subscribe(typing => {
+      this.typingUsers = typing;
+    });
   }
 
-  ngOnInit(): void {}
-
-  onScroll(): void {
-    this.store.dispatch(ChatActions.loadMessages({ 
-      chatId: (this.selectedChat$ | async)?.id || 0, 
-      page: 0 // Load older
-    }));
+  loadMessages(): void {
+    if (this.selectedUser) {
+      this.chatService.getConversation(this.selectedUser.id, this.page).subscribe(messages => {
+        if (messages.length < 20) this.page = -1; // No more
+        this.scrollToBottom();
+      });
+    } else if (this.selectedGroup) {
+      this.chatService.getGroupMessages(this.selectedGroup.id, this.page).subscribe(messages => {
+        if (messages.length < 20) this.page = -1;
+        this.scrollToBottom();
+      });
+    }
   }
 
-  onDeleteMessage(message: Message): void {
-    this.store.dispatch(ChatActions.deleteMessage({ messageId: message.id }));
+  onScroll(event: any): void {
+    if (event.target.scrollTop === 0 && this.page !== -1) {
+      this.page++;
+      this.loadMessages();
+    }
+  }
+
+  scrollToBottom(): void {
+    setTimeout(() => {
+      this.messagesContainer.nativeElement.scrollTop = this.messagesContainer.nativeElement.scrollHeight;
+    }, 100);
+  }
+
+  onImageSelect(event: any): void {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        this.imagePreview = this.sanitizer.bypassSecurityTrustUrl(e.target?.result as string);
+      };
+      reader.readAsDataURL(file);
+    }
+  }
+
+  onDeleteMessage(msg: MessageResponse): void {
+    if (confirm('Delete this message?')) {
+      if (this.selectedUser) {
+        this.chatService.deleteMessage(msg.id).subscribe(() => {
+          this.messages = this.messages.filter(m => m.id !== msg.id);
+        });
+      } else if (this.selectedGroup) {
+        this.chatService.deleteGroupMessage(this.selectedGroup.id, msg.id).subscribe(() => {
+          this.messages = this.messages.filter(m => m.id !== msg.id);
+        });
+      }
+    }
   }
 }

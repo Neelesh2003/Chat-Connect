@@ -2,24 +2,22 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
-import { AuthInterceptor } from './interceptors/auth.interceptor';
-import { AuthGuard } from './guards/auth.guard';
 import { ApiService } from './services/api.service';
+import { LoaderService } from './services/loader.service';
+import { AuthGuard } from './guards/auth.guard';
+import { JwtInterceptor } from './interceptors/jwt.interceptor';
 import { TimestampPipe } from './pipes/timestamp.pipe';
-import { DateService } from './services/date.service';
-import { ErrorService } from './services/error.service';
 
 @NgModule({
   declarations: [TimestampPipe],
   imports: [CommonModule],
   providers: [
     ApiService,
-    DateService,
-    ErrorService,
+    LoaderService,
     AuthGuard,
     {
       provide: HTTP_INTERCEPTORS,
-      useClass: AuthInterceptor,
+      useClass: JwtInterceptor,
       multi: true
     }
   ],

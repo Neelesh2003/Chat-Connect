@@ -1,13 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
-import { Store } from '@ngrx/store';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
-import { selectAuthLoading, selectAuthError, selectIsAuthenticated } from '../../store/auth.selectors';
-import * as AuthActions from '../../store/auth.actions';
-import { AuthService } from '../../services/auth.service';
-import { RegisterRequest } from '../../models/auth.models';
+import { LoaderService } from '../../../core/services/loader.service';
+import { RegisterRequest, AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -16,37 +10,33 @@ import { RegisterRequest } from '../../models/auth.models';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-  registerForm: FormGroup;
-  loading$: Observable<boolean>;
-  error$: Observable<string | null>;
+  user: RegisterRequest = { username: '', password: '' };
 
   constructor(
-    private fb: FormBuilder,
-    private store: Store,
+    private authService: AuthService,
     private router: Router,
-    private authService: AuthService
-  ) {
-    this.registerForm = this.fb.group({
-      username: ['', [Validators.required, Validators.minLength(3)]],
-      password: ['', [Validators.required, Validators.minLength(6)]]
-    });
-    this.loading$ = this.store.select(selectAuthLoading);
-    this.error$ = this.store.select(selectAuthError);
-  }
+    private loaderService: LoaderService
+  ) {}
 
   ngOnInit(): void {
-    if (this.authService.isAuthenticated()) {
-      this.router.navigate(['/dashboard']);
+    if (this.authService.isLoggedIn()) {
+      this.router.navigate(['/chat']);
     }
   }
 
-  onSubmit(): void {
-    if (this.registerForm.valid) {
-      const request: RegisterRequest = this.registerForm.value;
-      this.store.dispatch(AuthActions.register({ request }));
-      this.store.select(selectIsAuthenticated).subscribe(isAuth => {
-        if (isAuth) this.router.navigate(['/dashboard']);
-      });
+  register(): void {
+    if (!this.user.username.trim() || !this.user.password.trim()) {
+      alert('Please enter username and password');
+      return;
     }
+    this.authService.signup(this.user).subscribe({
+      next: (response) => {
+        alert('Registration successful! Please login.');
+        this.router.navigate(['/login']);
+      },
+      error: (error) => {
+        alert(error.error?.message || 'Registration failed');
+      }
+    });
   }
 }

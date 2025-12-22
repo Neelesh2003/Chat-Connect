@@ -1,11 +1,12 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { DateService } from '../services/date.service';
+import { format } from 'date-fns';
 
-@Pipe({ name: 'timestamp' })
+@Pipe({
+  name: 'timestamp',
+  standalone:false
+})
 export class TimestampPipe implements PipeTransform {
-  constructor(private dateService: DateService) {}
-
-  transform(value: string | number | Date): string {
-    return this.dateService.formatTimestamp(value);
+  transform(value: string | Date): string {
+    return format(new Date(value), 'hh:mm a');
   }
 }

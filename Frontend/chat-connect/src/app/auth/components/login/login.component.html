@@ -1,34 +1,31 @@
 <div class="container mt-5">
   <div class="row justify-content-center">
     <div class="col-md-6">
-      <div class="card">
-        <div class="card-header">
-          <h3 class="text-center">Login</h3>
-        </div>
+      <div class="card shadow">
         <div class="card-body">
-          <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+          <h3 class="card-title text-center mb-4">Login to TalkTrail</h3>
+          <form #loginForm="ngForm" (ngSubmit)="login()">
             <div class="mb-3">
               <label for="username" class="form-label">Username</label>
-              <input type="text" class="form-control" id="username" formControlName="username">
-              <div *ngIf="loginForm.get('username')?.invalid && loginForm.get('username')?.touched" class="text-danger">
-                Username is required (min 3 chars).
+              <input type="text" class="form-control" id="username" [(ngModel)]="user.username" name="username" required minlength="3" #username="ngModel">
+              <div *ngIf="username.invalid && username.touched" class="text-danger">
+                Username is required (min 3 characters).
               </div>
             </div>
             <div class="mb-3">
               <label for="password" class="form-label">Password</label>
-              <input type="password" class="form-control" id="password" formControlName="password">
-              <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" class="text-danger">
-                Password is required (min 6 chars).
+              <input type="password" class="form-control" id="password" [(ngModel)]="user.password" name="password" required minlength="6" #password="ngModel">
+              <div *ngIf="password.invalid && password.touched" class="text-danger">
+                Password is required (min 6 characters).
               </div>
             </div>
-            <button type="submit" class="btn btn-primary w-100" [disabled]="loginForm.invalid || (loading$ | async)">
-              {{ (loading$ | async) ? 'Logging in...' : 'Login' }}
+            <button type="submit" class="btn btn-primary w-100" [disabled]="!loginForm.form.valid">
+              Login
             </button>
           </form>
-          <div *ngIf="error$ | async as error" class="alert alert-danger mt-3">{{ error }}</div>
-          <p class="text-center mt-3">
-            Don't have an account? <a routerLink="../register">Register</a>
-          </p>
+          <div class="text-center mt-3">
+            <a routerLink="../register" class="text-decoration-none">Don't have an account? Register</a>
+          </div>
         </div>
       </div>
     </div>

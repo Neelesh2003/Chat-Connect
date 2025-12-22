@@ -1,58 +1,42 @@
-// Matching backend DTOs
-export interface Message {
+export interface MessageResponse {
   id: number;
   senderId: number;
   senderName: string;
   receiverId: number;
-  content: string; // Text or base64 for image
-  isImage: boolean;
+  receiverName: string;
+  message: string; // content
   createdAt: string;
+  isImage: boolean;
 }
 
-export interface Group {
+export interface SendMessageRequest {
+  receiverId: number;
+  message: string;
+}
+
+export interface SendGroupMessageRequest {
+  message: string;
+}
+
+export interface CreateGroupRequest {
+  name: string;
+  members?: number[];
+}
+
+export interface GroupResponse {
   id: number;
   name: string;
   createdBy: number;
   createdAt: string;
-  memberIds: number[];
 }
 
-export interface Chat {
+export interface AddMembersRequest {
+  members: number[];
+}
+
+export interface User {
   id: number;
-  type: 'one-to-one' | 'group';
-  name: string; // Username or group name
-  lastMessage: Message | null;
-  unreadCount: number;
-  isOnline?: boolean; // For one-to-one
+  username: string;
+  isOnline?: boolean;
+  isOffline?:boolean;
 }
-
-export interface SendMessageRequest {
-  receiverId?: number;
-  groupId?: number;
-  content: string; // Text or base64
-  isImage: boolean;
-}
-
-// NgRx state
-export interface ChatState {
-  chats: Chat[];
-  selectedChat: Chat | null;
-  messages: Message[];
-  loading: boolean;
-  error: string | null;
-  pagination: {
-    page: number;
-    hasMore: boolean;
-  };
-  typingUsers: Set<number>;
-}
-
-export const initialChatState: ChatState = {
-  chats: [],
-  selectedChat: null,
-  messages: [],
-  loading: false,
-  error: null,
-  pagination: { page: 0, hasMore: true },
-  typingUsers: new Set()
-};

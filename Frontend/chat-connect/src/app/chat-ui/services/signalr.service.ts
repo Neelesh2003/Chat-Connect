@@ -1,90 +1,97 @@
-import { Injectable } from '@angular/core';
-import { HubConnection, HubConnectionBuilder, LogLevel } from '@microsoft/signalr';
+import { Injectable, OnDestroy } from '@angular/core';
+import { HubConnection, HubConnectionBuilder } from '@microsoft/signalr';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { AuthService } from '../../auth/services/auth.service';
-import { Message, Group } from '../models/chat.models';
-import { environment } from 'src/environments/environment.prod';
+import { environment } from '../../../environments/environment';
+import { MessageResponse } from '../models/chat.models';
+import { AuthService } from 'src/app/auth/services/auth.service';
+import * as signalR from '@microsoft/signalr';
 
 @Injectable()
-export class SignalRService {
+export class SignalRService implements OnDestroy {
   private hubConnection: HubConnection | null = null;
-  private messagesSubject = new BehaviorSubject<Message[]>([]);
-  private onlineUsersSubject = new BehaviorSubject<Set<number>>(new Set());
-  private typingSubject = new BehaviorSubject<Set<number>>(new Set());
+  private messagesSubject = new BehaviorSubject<MessageResponse[]>([]);
+  private onlineUsersSubject = new BehaviorSubject<number[]>([]);
+  private typingUsersSubject = new BehaviorSubject<number[]>([]);
 
-  public messages$ = this.messagesSubject.asObservable();
-  public onlineUsers$ = this.onlineUsersSubject.asObservable();
-  public typing$ = this.typingSubject.asObservable();
+  messages$ = this.messagesSubject.asObservable();
+  onlineUsers$ = this.onlineUsersSubject.asObservable();
+  typingUsers$ = this.typingUsersSubject.asObservable();
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService) {
+    this.startConnection();
+  }
 
-  public startConnection(): Promise<void> {
-    return new Promise((resolve, reject) => {
-      this.hubConnection = new HubConnectionBuilder()
-        .withUrl(environment.signalRHubUrl, {
-          accessTokenFactory: () => this.authService.getToken()!
-        })
-        .configureLogging(LogLevel.Information)
-        .withAutomaticReconnect()
-        .build();
+  isConnected(): boolean {
+  return this.hubConnection?.state === signalR.HubConnectionState.Connected;
+}
+  private startConnection(): void {
+    this.hubConnection = new HubConnectionBuilder()
+      .withUrl(environment.signalRHubUrl, {
+        accessTokenFactory: () => this.authService.getToken() || ''
+      })
+      .build();
 
-      this.hubConnection.start()
-        .then(() => {
-          console.log('SignalR Connected');
-          this.registerEvents();
-          resolve();
-        })
-        .catch(err => reject(err));
+    this.hubConnection.start().then(() => {
+      console.log('SignalR connected');
+      this.registerOnServerEvents();
+    }).catch(err => console.error('SignalR connection error', err));
+
+    this.hubConnection.onclose(() => {
+      console.log('SignalR disconnected, reconnecting...');
+      setTimeout(() => this.startConnection(), 5000);
     });
   }
 
-  private registerEvents(): void {
-    this.hubConnection?.on('ReceiveMessage', (message: Message) => {
-      this.messagesSubject.next([...this.messagesSubject.value, message]);
+  private registerOnServerEvents(): void {
+    this.hubConnection?.on('ReceiveMessage', (message: MessageResponse) => {
+      const current = this.messagesSubject.value;
+      this.messagesSubject.next([...current, message]);
     });
 
     this.hubConnection?.on('UserOnline', (userId: number) => {
-      const online = this.onlineUsersSubject.value;
-      online.add(userId);
-      this.onlineUsersSubject.next(online);
+      const current = this.onlineUsersSubject.value;
+      if (!current.includes(userId)) {
+        this.onlineUsersSubject.next([...current, userId]);
+      }
     });
 
     this.hubConnection?.on('UserOffline', (userId: number) => {
-      const online = this.onlineUsersSubject.value;
-      online.delete(userId);
-      this.onlineUsersSubject.next(online);
+      const current = this.onlineUsersSubject.value;
+      this.onlineUsersSubject.next(current.filter(id => id !== userId));
     });
 
     this.hubConnection?.on('Typing', (userId: number) => {
-      const typing = this.typingSubject.value;
-      typing.add(userId);
-      this.typingSubject.next(typing);
+      const current = this.typingUsersSubject.value;
+      if (!current.includes(userId)) {
+        this.typingUsersSubject.next([...current, userId]);
+      }
     });
 
     this.hubConnection?.on('StopTyping', (userId: number) => {
-      const typing = this.typingSubject.value;
-      typing.delete(userId);
-      this.typingSubject.next(typing);
+      const current = this.typingUsersSubject.value;
+      this.typingUsersSubject.next(current.filter(id => id !== userId));
     });
   }
 
-  public sendMessage(message: Message): void {
+  sendPrivateMessage(message: MessageResponse): void {
     this.hubConnection?.invoke('SendPrivateMessage', message);
   }
 
-  public sendGroupMessage(groupMessage: Group): void {
-    this.hubConnection?.invoke('SendGroupMessage', groupMessage);
+  sendGroupMessage(message: MessageResponse): void {
+    this.hubConnection?.invoke('SendGroupMessage', message);
   }
 
-  public startTyping(chatId: number): void {
-    this.hubConnection?.invoke('StartTyping', chatId);
-  }
+startTyping(): void {
+  if (!this.isConnected()) return;
+  this.hubConnection!.invoke('StartTyping', 0);
+}
 
-  public stopTyping(chatId: number): void {
-    this.hubConnection?.invoke('StopTyping', chatId);
-  }
+stopTyping(): void {
+  if (!this.isConnected()) return;
+  this.hubConnection!.invoke('StopTyping', 0);
+}
 
-  public stopConnection(): Promise<void> {
-    return this.hubConnection?.stop() || Promise.resolve();
+  ngOnDestroy(): void {
+    this.hubConnection?.stop();
   }
 }
