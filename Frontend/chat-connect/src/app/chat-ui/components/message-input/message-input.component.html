@@ -1,7 +1,0 @@
-<div class="input-group p-3 bg-light border-top">
-  <input type="file" #fileInput (change)="onFileSelect($event)" accept="image/*" class="d-none">
-  <button class="btn btn-outline-secondary" type="button" (click)="fileInput.click()">📎</button>
-  <img *ngIf="imagePreview" [src]="imagePreview" class="img-thumbnail me-2" style="max-width: 50px; max-height: 50px;">
-  <input type="text" class="form-control" [(ngModel)]="newMessage" placeholder="Type a message..." (input)="onMessageInput()" (keyup.enter)="sendMessage()">
-  <button class="btn btn-primary" (click)="sendMessage()">Send</button>
-</div>
