@@ -62,10 +62,8 @@ export class AuthService {
     }
   }
 
-  getUsers(): Observable<any[]> {
-    return this.http.get(`${this.BASE_URL}/users`, { responseType: 'text' }).pipe(
-      map(res => JSON.parse(res))
-    );
+  getUsers(): Observable<any> {
+    return this.http.get(`${this.BASE_URL}/users`);
   }
 
   getUserByUsername(username: string): Observable<any> {

@@ -1,8 +1,7 @@
 import { Component, EventEmitter, Input, Output, OnChanges, SimpleChanges, ElementRef, ViewChild, ChangeDetectorRef } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
 import { ChatService } from '../../../shared/services/chat.service';
 import { LoaderService } from '../../../shared/services/loader.service';
+import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 
 interface SendMessageEvent {
   receiverId?: number;
@@ -15,7 +14,6 @@ interface SendMessageEvent {
   selector: 'app-chat-window',
   templateUrl: './chat-window.component.html',
   styleUrls: ['./chat-window.component.scss']
-  // Removed standalone/imports - NgModule handles
 })
 export class ChatWindowComponent implements OnChanges {
   @Input() currentUser: string | null = null;
@@ -23,11 +21,12 @@ export class ChatWindowComponent implements OnChanges {
   @Input() selectedGroup: any = null;
   @Input() messages: any[] = [];
 
-  @Output() sendMessage = new EventEmitter<SendMessageEvent>(); // Explicit type
+  @Output() sendMessage = new EventEmitter<SendMessageEvent>();
   @Output() deleteMessage = new EventEmitter<any>();
 
   newMessage = '';
   selectedFile: File | null = null;
+  imagePreview: SafeUrl | null = null;
   uploadProgress = 0;
 
   @ViewChild('bottomRef') bottomRef!: ElementRef;
@@ -36,7 +35,8 @@ export class ChatWindowComponent implements OnChanges {
   constructor(
     private chatService: ChatService,
     private loaderService: LoaderService,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+    private sanitizer: DomSanitizer
   ) {}
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -49,36 +49,41 @@ export class ChatWindowComponent implements OnChanges {
     const file = event.target.files[0];
     if (file && file.size > 5 * 1024 * 1024) {
       alert('File size must be less than 5MB');
+      this.fileInput.nativeElement.value = '';
       return;
     }
     if (file && file.type.startsWith('image/')) {
       this.selectedFile = file;
-      this.uploadImage();
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        this.imagePreview = this.sanitizer.bypassSecurityTrustUrl(e.target?.result as string);
+      };
+      reader.readAsDataURL(file);
     } else {
       alert('Only images (JPEG/PNG/GIF) are supported');
+      this.fileInput.nativeElement.value = '';
     }
   }
 
   private uploadImage(): void {
     if (!this.selectedFile) return;
     this.loaderService.show();
-    // Note: For real progress, add { reportProgress: true } to http.post and handle events
     this.chatService.uploadImage(this.selectedFile).subscribe({
       next: (response: any) => {
+        const url = response.url; // Assume backend returns { url: '...' }
         this.sendMessage.emit({
           receiverId: this.selectedUser?.id,
           groupId: this.selectedGroup?.id,
-          message: response.url, // Assume API returns { url: '...' }
+          message: url,
           isImage: true
         });
-        this.selectedFile = null;
-        this.uploadProgress = 100; // Simulate; use events for real
-        setTimeout(() => this.uploadProgress = 0, 1000);
-        this.fileInput.nativeElement.value = '';
+        this.resetInput();
         this.loaderService.hide();
       },
-      error: () => {
+      error: (err) => {
         alert('Upload failed');
+        console.error(err);
+        this.resetInput();
         this.loaderService.hide();
       }
     });
@@ -86,18 +91,39 @@ export class ChatWindowComponent implements OnChanges {
 
   onSend(): void {
     if (!this.newMessage.trim() && !this.selectedFile) return;
-    this.sendMessage.emit({
-      receiverId: this.selectedUser?.id,
-      groupId: this.selectedGroup?.id,
-      message: this.newMessage,
-      isImage: !!this.selectedFile
-    });
+
+    if (this.selectedFile) {
+      // Upload image first
+      this.uploadImage();
+    } else {
+      // Send text directly
+      this.sendMessage.emit({
+        receiverId: this.selectedUser?.id,
+        groupId: this.selectedGroup?.id,
+        message: this.newMessage,
+        isImage: false
+      });
+      this.resetInput();
+    }
+  }
+
+  private resetInput(): void {
     this.newMessage = '';
     this.selectedFile = null;
+    this.imagePreview = null;
+    this.uploadProgress = 0;
+    this.fileInput.nativeElement.value = '';
+    this.cdr.detectChanges();
   }
 
   onDelete(msg: any): void {
     this.deleteMessage.emit(msg);
+  }
+
+  onImageClick(url: string): void {
+    if (url.startsWith('http')) {
+      window.open(url, '_blank');
+    }
   }
 
   scrollToBottom(): void {

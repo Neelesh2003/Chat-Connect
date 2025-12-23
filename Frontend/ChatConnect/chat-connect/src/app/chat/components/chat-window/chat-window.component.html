@@ -12,14 +12,20 @@
         {{ msg.senderName }}
       </div>
 
-      <div class="message-text">
+      <div class="message-text" *ngIf="!isImageMessage(msg)">
         {{ msg.content }}
       </div>
 
+      <img *ngIf="isImageMessage(msg)" 
+           [src]="msg.content" 
+           class="img-fluid rounded" 
+           style="max-width: 200px; max-height: 200px; cursor: pointer;" 
+           [alt]="'Image from ' + msg.senderName"
+           (click)="onImageClick(msg.content)">
+
       <div class="message-meta">
         <span class="time">
-          <!-- time from API if provided, fallback to now -->
-          {{ msg.sentTime || '' }}
+          {{ msg.sentTime || getFormattedTime(msg.createdAt) }}
         </span>
         <span class="delete" *ngIf="msg.senderName === currentUser"
           (click)="onDelete(msg)" title="Delete message">🗑</span>
@@ -33,8 +39,28 @@
   </div>
 
   <div class="message-input-container" *ngIf="selectedUser || selectedGroup">
-    <input class="message-input" [(ngModel)]="newMessage" placeholder="Type a message..." (keydown.enter)="onSend()" />
-    <button class="send-button" (click)="onSend()">Send</button>
+    <div class="input-group">
+      <input type="file" #fileInput (change)="onFileSelected($event)" accept="image/*" class="d-none">
+      <button class="btn btn-outline-secondary" type="button" (click)="fileInput.click()" title="Attach image">
+        📎
+      </button>
+      <img *ngIf="imagePreview" 
+           [src]="imagePreview" 
+           class="img-thumbnail me-2" 
+           style="max-width: 50px; max-height: 50px;"
+           alt="Preview">
+      <input class="form-control" 
+             [(ngModel)]="newMessage" 
+             placeholder="Type a message..." 
+             (keydown.enter)="onSend()"
+             [disabled]="!!selectedFile">
+      <button class="btn btn-primary" (click)="onSend()" [disabled]="!newMessage.trim() && !selectedFile">
+        Send
+      </button>
+    </div>
+    <div *ngIf="uploadProgress > 0" class="progress mt-2">
+      <div class="progress-bar" role="progressbar" [style.width.%]="uploadProgress">Uploading...</div>
+    </div>
   </div>
 
   <div class="empty-state" *ngIf="!selectedUser && !selectedGroup">
