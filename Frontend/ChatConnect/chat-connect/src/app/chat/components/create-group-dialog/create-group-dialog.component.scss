@@ -1,0 +1,7 @@
+.form-check { margin-bottom: 0.5rem; }
+
+.mat-mdc-dialog-surface { background: #2a2f38; color: #fff; }
+
+@media (max-width: 576px) {
+  .justify-content-end { flex-direction: column-reverse; gap: 0.5rem; }
+}

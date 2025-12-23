@@ -1,0 +1,23 @@
+<div class="d-flex h-100">
+  <app-sidebar
+    [user]="userName"
+    [users]="users"
+    [groups]="groups"
+    [onlineUsers]="onlineUsers"
+    [selectedUser]="selectedUser"
+    [selectedGroup]="selectedGroup"
+    (selectUser)="onSelectUser($event)"
+    (selectGroup)="onSelectGroup($event)"
+    (logoutEvent)="onLogout()"
+    (searchEvent)="onSearchUsers($event)"
+    (createGroup)="openCreateGroup()">
+  </app-sidebar>
+  <app-chat-window
+    [currentUser]="userName"
+    [selectedUser]="selectedUser"
+    [selectedGroup]="selectedGroup"
+    [messages]="messages"
+    (sendMessage)="onSendMessage($event)"
+    (deleteMessage)="onDeleteMessage($event)">
+  </app-chat-window>
+</div>

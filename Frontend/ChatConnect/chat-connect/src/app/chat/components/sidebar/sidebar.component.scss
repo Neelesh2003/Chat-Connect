@@ -1,0 +1,15 @@
+.list-group-item {
+  cursor: pointer;
+  transition: background-color 0.2s;
+  &:hover { background-color: #3b4b62 !important; }
+  &.active { background-color: #0078d7 !important; }
+}
+
+.nav-link {
+  color: #ccc !important;
+  &:hover, &.active { color: #fff !important; border-bottom: 2px solid #0078d7 !important; }
+}
+
+@media (max-width: 768px) {
+  .d-flex.flex-column { width: 100%; transform: translateX(0); }
+}

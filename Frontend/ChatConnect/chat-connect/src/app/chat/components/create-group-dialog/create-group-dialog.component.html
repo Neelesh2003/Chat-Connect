@@ -1,0 +1,20 @@
+<div mat-dialog-content class="p-3">
+  <h2 mat-dialog-title>Create New Group</h2>
+  <form #groupForm="ngForm">
+    <div class="mb-3">
+      <label class="form-label">Group Name</label>
+      <input class="form-control" [(ngModel)]="groupName" name="groupName" required>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Select Members</label>
+      <div class="form-check" *ngFor="let user of data.users">
+        <input class="form-check-input" type="checkbox" [id]="'user-' + user.id" [(ngModel)]="user.selected" [name]="'user' + user.id" (change)="toggleMember(user.id)">
+        <label class="form-check-label" [for]="'user-' + user.id">{{ user.username }}</label>
+      </div>
+    </div>
+  </form>
+</div>
+<div mat-dialog-actions class="p-3 justify-content-end">
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-raised-button color="primary" (click)="onSubmit()" [disabled]="!groupName.trim() || selectedMembers.length === 0">Create</button>
+</div>
