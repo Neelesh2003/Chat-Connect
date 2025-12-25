@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
 
     this.authService.login(user).subscribe({
       next: (response) => {
-        this.authService.setToken(response);
+        localStorage.setItem('token', response.token);
         this.loginBtnClicked = false;
         this.loaderService.hide();
         this.router.navigate(['/chat']);

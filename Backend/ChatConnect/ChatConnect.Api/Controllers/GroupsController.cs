@@ -5,9 +5,11 @@ using ChatConnect.Application.Features.Groups.Commands.CreateGroup;
 using ChatConnect.Application.Features.Groups.Commands.DeleteGroupMessage;
 using ChatConnect.Application.Features.Groups.Commands.SendGroupMessage;
 using ChatConnect.Application.Features.Groups.Queries.GetGroupMessages;
+using ChatConnect.Application.Features.Groups.Queries.GetUserGroups; // ADD THIS
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace ChatConnect.Api.Controllers
 {
@@ -23,17 +25,27 @@ namespace ChatConnect.Api.Controllers
             _mediator = mediator;
         }
 
+        // ✅ ADD THIS MISSING ENDPOINT
+        [HttpGet]
+        public async Task<IActionResult> GetUserGroups()
+        {
+            var currentUserId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)!.Value);
+
+            var query = new GetUserGroupsQuery();
+            var result = await _mediator.Send(query);
+            return Ok(result);
+        }
+
         [HttpPost]
         public async Task<IActionResult> CreateGroup([FromBody] CreateGroupRequest request)
         {
-            var currentUserId = int.Parse(User.FindFirst("userId")!.Value);
+            var currentUserId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)!.Value);
             var command = new CreateGroupCommand
             {
                 Name = request.Name,
                 CreatedBy = currentUserId,
                 MemberIds = request.Members ?? new List<int>()
             };
-
             var result = await _mediator.Send(command);
             return Ok(result);
         }
@@ -41,14 +53,13 @@ namespace ChatConnect.Api.Controllers
         [HttpPost("{groupId}/members")]
         public async Task<IActionResult> AddMembers(int groupId, [FromBody] AddMembersRequest request)
         {
-            var currentUserId = int.Parse(User.FindFirst("userId")!.Value);
+            var currentUserId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)!.Value);
             var command = new AddMembersToGroupCommand
             {
                 GroupId = groupId,
                 AddedBy = currentUserId,
                 MemberIds = request.Members
             };
-
             var result = await _mediator.Send(command);
             return Ok(result);
         }
@@ -56,7 +67,7 @@ namespace ChatConnect.Api.Controllers
         [HttpPost("{groupId}/messages")]
         public async Task<IActionResult> SendGroupMessage(int groupId, [FromBody] SendGroupMessageRequest request)
         {
-            var currentUserId = int.Parse(User.FindFirst("userId")!.Value);
+            var currentUserId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)!.Value);
             var command = new SendGroupMessageCommand
             {
                 GroupId = groupId,
@@ -64,7 +75,6 @@ namespace ChatConnect.Api.Controllers
                 Content = request.Message,
                 IsImage = false
             };
-
             var result = await _mediator.Send(command);
             return Ok(result);
         }
@@ -72,13 +82,12 @@ namespace ChatConnect.Api.Controllers
         [HttpGet("{groupId}/messages")]
         public async Task<IActionResult> GetGroupMessages(int groupId)
         {
-            var currentUserId = int.Parse(User.FindFirst("userId")!.Value);
+            var currentUserId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)!.Value);
             var query = new GetGroupMessagesQuery
             {
                 GroupId = groupId,
                 UserId = currentUserId
             };
-
             var result = await _mediator.Send(query);
             return Ok(result);
         }
@@ -86,14 +95,13 @@ namespace ChatConnect.Api.Controllers
         [HttpDelete("{groupId}/messages/{messageId}")]
         public async Task<IActionResult> DeleteGroupMessage(int groupId, int messageId)
         {
-            var currentUserId = int.Parse(User.FindFirst("userId")!.Value);
+            var currentUserId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)!.Value);
             var command = new DeleteGroupMessageCommand
             {
                 MessageId = messageId,
                 GroupId = groupId,
                 UserId = currentUserId
             };
-
             var result = await _mediator.Send(command);
             return Ok(result);
         }

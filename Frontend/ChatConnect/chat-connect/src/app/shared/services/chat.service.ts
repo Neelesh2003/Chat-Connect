@@ -1,34 +1,27 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { AuthService } from './auth.service';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ChatService {
-  constructor(private http: HttpClient, private authService: AuthService) {}
-
-  private getHeaders() {
-    return {
-      headers: new HttpHeaders({
-        Authorization: `Bearer ${this.authService.getToken()}`,
-        'Content-Type': 'application/json'
-      })
-    };
-  }
+  constructor(private http: HttpClient) {}
 
   getChatMessages(userId: number): Observable<any> {
-    return this.http.get(`${environment.BASE_URL}/messages/conversation/${userId}`, this.getHeaders());
+    return this.http.get(`${environment.BASE_URL}/Messages/conversation/${userId}`);
   }
 
   sendMessage(receiverId: number, message: string): Observable<any> {
-    return this.http.post(`${environment.BASE_URL}/messages/send`, { receiverId, message }, this.getHeaders());
+    return this.http.post(`${environment.BASE_URL}/Messages/send`, { receiverId, message });
   }
+  sendImageMessage(formData: FormData) {
+  return this.http.post(`${environment.BASE_URL}/Messages/send-image`, formData);
+}
 
   deleteMessage(messageId: number): Observable<any> {
-    return this.http.delete(`${environment.BASE_URL}/messages/${messageId}`, this.getHeaders());
+    return this.http.delete(`${environment.BASE_URL}/Messages/${messageId}`);
   }
 
   uploadImage(file: File): Observable<any> {
@@ -38,22 +31,22 @@ export class ChatService {
   }
 
   getGroups(): Observable<any> {
-    return this.http.get(`${environment.BASE_URL}/groups`, this.getHeaders());
+    return this.http.get(`${environment.BASE_URL}/Groups`);
   }
 
   createGroup(name: string, members: number[]): Observable<any> {
-    return this.http.post(`${environment.BASE_URL}/groups`, { name, members }, this.getHeaders());
+    return this.http.post(`${environment.BASE_URL}/Groups`, { name, members });
   }
 
   getGroupMessages(groupId: number): Observable<any> {
-    return this.http.get(`${environment.BASE_URL}/groups/${groupId}/messages`, this.getHeaders());
+    return this.http.get(`${environment.BASE_URL}/Groups/${groupId}/messages`);
   }
 
   sendGroupMessage(groupId: number, message: string): Observable<any> {
-    return this.http.post(`${environment.BASE_URL}/groups/${groupId}/messages`, { message }, this.getHeaders());
+    return this.http.post(`${environment.BASE_URL}/Groups/${groupId}/messages`, { message });
   }
 
   deleteGroupMessage(groupId: number, msgId: number): Observable<any> {
-    return this.http.delete(`${environment.BASE_URL}/groups/${groupId}/messages/${msgId}`, this.getHeaders());
+    return this.http.delete(`${environment.BASE_URL}/Groups/${groupId}/messages/${msgId}`);
   }
 }

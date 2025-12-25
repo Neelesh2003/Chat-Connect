@@ -65,29 +65,35 @@ export class ChatWindowComponent implements OnChanges {
     }
   }
 
-  private uploadImage(): void {
-    if (!this.selectedFile) return;
-    this.loaderService.show();
-    this.chatService.uploadImage(this.selectedFile).subscribe({
-      next: (response: any) => {
-        const url = response.url; // Assume backend returns { url: '...' }
-        this.sendMessage.emit({
-          receiverId: this.selectedUser?.id,
-          groupId: this.selectedGroup?.id,
-          message: url,
-          isImage: true
-        });
-        this.resetInput();
-        this.loaderService.hide();
-      },
-      error: (err) => {
-        alert('Upload failed');
-        console.error(err);
-        this.resetInput();
-        this.loaderService.hide();
-      }
-    });
-  }
+ private uploadImage(): void {
+  if (!this.selectedFile) return;
+
+  const formData = new FormData();
+  formData.append('file', this.selectedFile);
+  formData.append('receiverId', this.selectedUser?.id);
+  if (this.selectedGroup) formData.append('groupId', this.selectedGroup?.id);
+
+  this.loaderService.show();
+  this.chatService.sendImageMessage(formData).subscribe({
+    next: (response: any) => {
+      this.sendMessage.emit({
+        receiverId: this.selectedUser?.id,
+        groupId: this.selectedGroup?.id,
+        message: response.url,
+        isImage: true
+      });
+      this.resetInput();
+      this.loaderService.hide();
+    },
+    error: (err) => {
+      alert('Upload failed');
+      console.error(err);
+      this.resetInput();
+      this.loaderService.hide();
+    }
+  });
+}
+
 
   onSend(): void {
     if (!this.newMessage.trim() && !this.selectedFile) return;

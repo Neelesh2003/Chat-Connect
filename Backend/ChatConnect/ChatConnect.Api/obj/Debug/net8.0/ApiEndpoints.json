@@ -43,6 +43,16 @@
   },
   {
     "ContainingType": "ChatConnect.Api.Controllers.GroupsController",
+    "Method": "GetUserGroups",
+    "RelativePath": "api/Groups",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ChatConnect.Api.Controllers.GroupsController",
     "Method": "CreateGroup",
     "RelativePath": "api/Groups",
     "HttpMethod": "POST",

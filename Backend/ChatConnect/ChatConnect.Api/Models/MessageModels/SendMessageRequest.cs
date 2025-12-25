@@ -10,6 +10,6 @@ namespace ChatConnect.Api.Models.MessageModels
         [Required]
         public string Message { get; set; } = string.Empty;
 
-        public bool IsImage { get; set; } = false; // For image support
+        public bool IsImage { get; set; } = false; 
     }
 }

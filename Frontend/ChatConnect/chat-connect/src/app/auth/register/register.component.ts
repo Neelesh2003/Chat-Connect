@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
 import { AuthService } from '../../shared/services/auth.service';
 import { LoaderService } from '../../shared/services/loader.service';
 
@@ -38,13 +38,19 @@ export class RegisterComponent implements OnInit {
 
     this.authService.signup(user).subscribe({
       next: (response) => {
-        alert(response);
+        // ✅ FIXED: Handle object response properly
+        const message = typeof response === 'string' 
+          ? response 
+          : (response?.message || 'Registration successful!');
+        alert(message);
         this.registerBtnClicked = false;
         this.loaderService.hide();
         this.router.navigate(['/login']);
       },
       error: (error) => {
-        alert(error?.error?.message || 'Registration failed');
+        console.error('Registration error:', error);
+        const errorMsg = error?.error?.message || error?.error || 'Registration failed';
+        alert(typeof errorMsg === 'string' ? errorMsg : 'Registration failed');
         this.registerBtnClicked = false;
         this.loaderService.hide();
       }

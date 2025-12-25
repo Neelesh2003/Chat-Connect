@@ -5,6 +5,7 @@ using ChatConnect.Application.Features.Messages.Queries.GetConversation;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace ChatConnect.Api.Controllers
 {
@@ -23,13 +24,13 @@ namespace ChatConnect.Api.Controllers
         [HttpPost("send")]
         public async Task<IActionResult> SendMessage([FromBody] SendMessageRequest request)
         {
-            var currentUserId = int.Parse(User.FindFirst("userId")!.Value);
+            var currentUserId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)!.Value);
             var command = new SendMessageCommand
             {
                 SenderId = currentUserId,
                 ReceiverId = request.ReceiverId,
                 Content = request.Message,
-                IsImage = false // Default; set based on content if needed
+                IsImage = false
             };
 
             var result = await _mediator.Send(command);
@@ -39,7 +40,8 @@ namespace ChatConnect.Api.Controllers
         [HttpGet("conversation/{userId}")]
         public async Task<IActionResult> GetConversation(int userId)
         {
-            var currentUserId = int.Parse(User.FindFirst("userId")!.Value);
+            var currentUserId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)!.Value);
+
             var query = new GetConversationQuery
             {
                 UserId1 = currentUserId,
@@ -53,7 +55,8 @@ namespace ChatConnect.Api.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteMessage(int id)
         {
-            var currentUserId = int.Parse(User.FindFirst("userId")!.Value);
+            var currentUserId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)!.Value);
+
             var command = new DeleteMessageCommand
             {
                 MessageId = id,

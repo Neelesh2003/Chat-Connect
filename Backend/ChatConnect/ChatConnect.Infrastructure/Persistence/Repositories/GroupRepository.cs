@@ -45,6 +45,18 @@ namespace ChatConnect.Infrastructure.Persistence.Repositories
             }
             ).Where(x => x.GroupId == groupId).ToListAsync();
         }
+
+        public async Task<List<GroupDto>> GetUserGroupsAsync()
+        { return await _context.Groups.Select(g => new GroupDto
+        {
+            Id = g.Id,
+            Name = g.Name,
+            CreatedBy = g.CreatedBy,
+            CreatedAt = g.CreatedAt
+
+        }).ToListAsync();
+      
+        }
         public async Task SaveChangesAsync()
         {
             await _context.SaveChangesAsync();

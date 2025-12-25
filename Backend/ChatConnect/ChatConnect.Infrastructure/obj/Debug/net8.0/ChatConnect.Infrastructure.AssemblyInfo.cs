@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ChatConnect.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f13769efdd7cd0199c4d98f0d97c3f85d725518a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+28d12f0389b64b0b512b065074dd12a559b60bfa")]
 [assembly: System.Reflection.AssemblyProductAttribute("ChatConnect.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ChatConnect.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
